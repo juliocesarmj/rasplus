@@ -59,7 +59,7 @@ public class SubscriptionTypeServiceImpl implements com.client.ws.service.Subscr
 
     @Override
     public void delete(Long id) {
-
+        this.subscriptionTypeRepository.delete(this.getSubscriptionType(id));
     }
 
     private SubscriptionType getSubscriptionType(Long id) {
