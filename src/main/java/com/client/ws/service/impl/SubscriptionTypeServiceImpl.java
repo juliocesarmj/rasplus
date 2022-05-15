@@ -1,13 +1,14 @@
 package com.client.ws.service.impl;
 
 import com.client.ws.dto.SubscriptionTypeDto;
+import com.client.ws.exceptions.BadRequestException;
 import com.client.ws.exceptions.NotFoundException;
 import com.client.ws.model.SubscriptionType;
 import com.client.ws.repository.SubscriptionTypeRepository;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -41,6 +42,10 @@ public class SubscriptionTypeServiceImpl implements com.client.ws.service.Subscr
 
     @Override
     public SubscriptionType create(SubscriptionTypeDto dto) {
+
+        if(Objects.nonNull(dto.getId())) {
+            throw new BadRequestException("ERROR: Houve uma tentativa de inserção de um dado não permitido.");
+        }
         return this.subscriptionTypeRepository.save(SubscriptionType.builder()
                         .id(dto.getId())
                         .name(dto.getName())

@@ -2,7 +2,6 @@ package com.client.ws.controller;
 
 import com.client.ws.dto.SubscriptionTypeDto;
 import com.client.ws.model.SubscriptionType;
-import com.client.ws.repository.SubscriptionTypeRepository;
 import com.client.ws.service.SubscriptionTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
