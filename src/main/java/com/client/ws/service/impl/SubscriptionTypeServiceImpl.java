@@ -3,6 +3,7 @@ package com.client.ws.service.impl;
 import com.client.ws.dto.SubscriptionTypeDto;
 import com.client.ws.exceptions.BadRequestException;
 import com.client.ws.exceptions.NotFoundException;
+import com.client.ws.mapper.SubscriptionTypeMapper;
 import com.client.ws.model.SubscriptionType;
 import com.client.ws.repository.SubscriptionTypeRepository;
 import org.springframework.stereotype.Service;
@@ -36,25 +37,14 @@ public class SubscriptionTypeServiceImpl implements com.client.ws.service.Subscr
         if (Objects.nonNull(dto.getId())) {
             throw new BadRequestException("ERROR: Houve uma tentativa de inserção de um dado não permitido.");
         }
-        return this.subscriptionTypeRepository.save(SubscriptionType.builder()
-                .id(dto.getId())
-                .name(dto.getName())
-                .price(dto.getPrice())
-                .accessMonth(dto.getAccessMonth())
-                .productKey(dto.getProductKey())
-                .build());
+        return this.subscriptionTypeRepository.save(SubscriptionTypeMapper.fromDtoToEntity(dto));
     }
 
     @Override
     public SubscriptionType update(Long id, SubscriptionTypeDto dto) {
         this.getSubscriptionType(id);
-        return this.subscriptionTypeRepository.save(SubscriptionType.builder()
-                .id(id)
-                .name(dto.getName())
-                .price(dto.getPrice())
-                .accessMonth(dto.getAccessMonth())
-                .productKey(dto.getProductKey())
-                .build());
+        dto.setId(id);
+        return this.subscriptionTypeRepository.save(SubscriptionTypeMapper.fromDtoToEntity(dto));
     }
 
     @Override
