@@ -6,6 +6,7 @@ import com.client.ws.exceptions.NotFoundException;
 import com.client.ws.mapper.SubscriptionTypeMapper;
 import com.client.ws.model.SubscriptionType;
 import com.client.ws.repository.SubscriptionTypeRepository;
+import com.client.ws.service.SubscriptionTypeService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Service
-public class SubscriptionTypeServiceImpl implements com.client.ws.service.SubscriptionTypeService {
+public class SubscriptionTypeServiceImpl implements SubscriptionTypeService {
 
     private final SubscriptionTypeRepository subscriptionTypeRepository;
 
