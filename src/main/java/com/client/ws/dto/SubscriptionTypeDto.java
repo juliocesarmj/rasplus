@@ -19,14 +19,14 @@ public class SubscriptionTypeDto {
 
     private Long id;
 
-    @NotBlank(message = "Campo requerido")
+    @NotBlank(message = "campo requerido")
     @Size(min = 5, max = 30, message = "deve ter tamanho entre 5 e 30")
     private String name;
 
-    @Max(value = 12, message = "Campo accessMonth não pode ser maior que 12")
-    private Long accessMonth;
+    @Max(value = 12, message = "não pode ser maior que 12")
+    private Long accessMonths;
 
-    @NotNull(message = "Campo price não pode ser nulo")
+    @NotNull(message = "não pode ser nulo")
     private BigDecimal price;
 
     @NotBlank(message = "Campo requerido")
