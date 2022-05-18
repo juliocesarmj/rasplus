@@ -20,7 +20,7 @@ public class SubscriptionTypeDto {
     private Long id;
 
     @NotBlank(message = "Campo requerido")
-    @Size(min = 5, max = 30)
+    @Size(min = 5, max = 30, message = "deve ter tamanho entre 5 e 30")
     private String name;
 
     @Max(value = 12, message = "Campo accessMonth não pode ser maior que 12")
@@ -30,6 +30,6 @@ public class SubscriptionTypeDto {
     private BigDecimal price;
 
     @NotBlank(message = "Campo requerido")
-    @Size(min = 5, max = 15)
+    @Size(min = 5, max = 15, message = "deve ter tamanho entre 5 e 15")
     private String productKey;
 }
